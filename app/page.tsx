@@ -58,7 +58,7 @@ export default function Portfolio() {
               <div className="h-4 bg-gray-800 rounded-full overflow-hidden border border-gray-600">
                 <div className="h-full bg-green-500 w-1/4"></div>
               </div>
-              <div className="text-xs mt-1">DEVELOPER LVL 24</div>
+              <div className="text-xs mt-1"> LEVEL 24</div>
             </div>
           </div>
 
