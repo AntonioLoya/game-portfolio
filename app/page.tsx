@@ -434,7 +434,7 @@ Me considero una persona curiosa y siempre en constante aprendizaje, buscando nu
         {/* Footer with game stats */}
         <footer className="mt-8 text-green-400 text-sm">
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-green-500 pt-4">
-          <div className="mb-4 md:mb-0">XP: 9999 | NIVEL: 24</div>
+          <div className="mb-4 md:mb-0">XP: 9999 | LEVEL: 24</div>
           <div>© 2025 Antonio de Jesús Loya Castillo | TODOS LOS DERECHOS RESERVADOS</div>
         </div>
       </footer>
