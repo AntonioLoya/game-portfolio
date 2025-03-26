@@ -95,7 +95,7 @@ export default function Portfolio() {
         </header>
 
         {/* Navigation */}
-        <nav className="mb-4 border-2 border-green-500 p-3  bg-black bg-opacity-30 rounded-lg">
+        <nav className="mb-4 border-2 border-green-500 p-3  bg-black bg-opacity-10 rounded-lg">
           <ul className="flex flex-wrap gap-2">
             {[
               { id: "home", label: "HOME", icon: <Home size={16} /> },
@@ -125,7 +125,7 @@ export default function Portfolio() {
         </nav>
 
         {/* Content sections */}
-        <div className="border-2 border-green-500 p-6 bg-black bg-opacity-30 rounded-lg min-h-[400px]">
+        <div className="border-2 border-green-500 p-6 bg-black bg-opacity-10 rounded-lg min-h-[400px]">
           {activeSection === "home" && (
             <motion.div
               initial={{ opacity: 0 }}
