@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Portfolio Videojuego",
-  description: "Un portfolio creativo con estilo de videojuego",
+  title: "Portfolio Antonio de Jesús Loya Castillo",
+  description: "ALC Portfolio",
     generator: 'v0.dev'
 }
 
