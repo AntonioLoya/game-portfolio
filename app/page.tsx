@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ChevronRight, Mail, Github, Linkedin, User, BookOpen, Briefcase, Code, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -52,26 +53,37 @@ export default function Portfolio() {
       <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Header with health bar */}
         <header className="mb-8">
-          <div className="flex items-center mb-4">
-            <div className="w-8 h-8 bg-green-500 rounded-full mr-4 border-2 border-white"></div>
-            <div className="flex-1">
-              <div className="h-4 bg-gray-800 rounded-full overflow-hidden border border-gray-600">
-                <div className="h-full bg-green-500 w-1/4"></div>
-              </div>
-              <div className="text-xs mt-1"> LEVEL 24</div>
+        <div className="flex items-center mb-4">
+          <div className="w-8 h-8 bg-green-500 rounded-full mr-4 border-2 border-white"></div>
+          <div className="flex-1">
+            <div className="h-4 bg-gray-800 rounded-full overflow-hidden border border-gray-600 relative">
+              <motion.div
+                className="h-full bg-green-500"
+                initial={{ width: "0%" }}
+                animate={{ width: "24%" }} // Cambia según el nivel
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+              />
             </div>
+            <div className="text-xs mt-1 text-green-400 font-bold">LEVEL 24</div>
           </div>
+        </div>
 
           <motion.h1
-            className="text-4xl md:text-6xl font-bold text-green-400 mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            HOLA, SOY ANTONIO
-            {showCursor && <span className="text-green-400">_</span>}
-          </motion.h1>
-
+          className="text-2xl md:text-3xl font-bold text-green-400 mb-2"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typewriter
+            words={["HOLA, SOY ANTONIO"]}
+            loop={Infinity}
+            cursor
+            cursorStyle="_"
+            typeSpeed={100}   // Velocidad de escritura
+            deleteSpeed={80}  // Velocidad de borrado
+            delaySpeed={500} // Tiempo antes de borrar
+          />
+        </motion.h1>
           <motion.p
             className="text-green-200 mb-4"
             initial={{ opacity: 0 }}
@@ -83,7 +95,7 @@ export default function Portfolio() {
         </header>
 
         {/* Navigation */}
-        <nav className="mb-8 border-2 border-green-500 p-4 bg-black bg-opacity-80 rounded-lg">
+        <nav className="mb-4 border-2 border-green-500 p-3  bg-black bg-opacity-30 rounded-lg">
           <ul className="flex flex-wrap gap-2">
             {[
               { id: "home", label: "HOME", icon: <Home size={16} /> },
@@ -113,7 +125,7 @@ export default function Portfolio() {
         </nav>
 
         {/* Content sections */}
-        <div className="border-2 border-green-500 p-6 bg-black bg-opacity-80 rounded-lg min-h-[400px]">
+        <div className="border-2 border-green-500 p-6 bg-black bg-opacity-30 rounded-lg min-h-[400px]">
           {activeSection === "home" && (
             <motion.div
               initial={{ opacity: 0 }}
