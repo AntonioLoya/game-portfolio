@@ -46,7 +46,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-black text-white font-mono overflow-hidden">
       {/* Pixel art background overlay */}
-      <div className="fixed inset-0 bg-[url('/BACK.jpeg?height=32&width=32')] bg-repeat opacity-10 pointer-events-none" />
+      <div className="fixed inset-0 bg-[url('/descargar.gif?height=32&width=32')] bg-repeat opacity-10 pointer-events-none" />
 
       {/* Game UI container */}
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -435,7 +435,7 @@ Me considero una persona curiosa y siempre en constante aprendizaje, buscando nu
         <footer className="mt-8 text-green-400 text-sm">
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-green-500 pt-4">
           <div className="mb-4 md:mb-0">XP: 9999 | LEVEL: 24</div>
-          <div>© 2025 Antonio de Jesús Loya Castillo | TODOS LOS DERECHOS RESERVADOS</div>
+          <div>© 2025 ANTONIO DE JESÚS LOYA CASTILLO | TODOS LOS DERECHOS RESERVADOS</div>
         </div>
       </footer>
       </div>
