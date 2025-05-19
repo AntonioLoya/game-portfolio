@@ -8,7 +8,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Portfolio Antonio de Jesús Loya Castillo",
   description: "ALC Portfolio",
-    generator: 'v0.dev'
+   icons: {
+    icon: "https://miportfolio-rho.vercel.app/image/Logo.png", // o "/favicon.png"
+  },
+   
 }
 
 export default function RootLayout({
