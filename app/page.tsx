@@ -24,6 +24,7 @@ import { Typewriter } from "react-simple-typewriter"
 import PixelCursor from "@/components/pixel-cursor"
 import LoadingScreen from "@/components/loading-screen"
 import SoundToggle from "@/components/sound-toggle"
+import { useIsMobile } from "@/hooks/use-is-mobile"
 // Importar el nuevo hook
 import { useSoundEffects } from "@/hooks/use-sound-effects"
 
@@ -32,12 +33,8 @@ export default function Portfolio() {
   const [showCursor, setShowCursor] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const [soundEnabled, setSoundEnabled] = useState(false)
-  // Eliminar estas líneas:
-  // const clickSoundRef = useRef<HTMLAudioElement | null>(null)
-  // const hoverSoundRef = useRef<HTMLAudioElement | null>(null)
-
+  const isMobile = useIsMobile()
   const { toast } = useToast()
-  // Añadir esta línea después de const [soundEnabled, setSoundEnabled] = useState(false)
   const { playClickSound, playHoverSound } = useSoundEffects(soundEnabled)
 
   const projects = [
@@ -46,7 +43,7 @@ export default function Portfolio() {
       description:
         "Prueba de detección de emociones basada en la salida de parámetros de CLMTRACKR, es una librería JavaScript para ajustar modelos faciales a rostros en vídeos o imágenes. Actualmente se trata de una implementación de modelos locales restringidos ajustados por un desplazamiento medio de referencia regularizado, ajusta un modelo facial a un rostro en una imagen o vídeo a partir de una inicialización aproximada que costa de 70 puntos llamadas clasificadores, una vez iniciando el video, se capturan estos clasificadores en un Array vacío inicialmente.",
       technologies: ["HTML", "CSS", "JavaScript", "CLMTRACKR", "Node.js", "3D.js"],
-      image: "/images/facial-recognition.png",
+      image: "/fa.png",
       link: "https://reconocimiento-facial-de-emociones.netlify.app/",
     },
     {
@@ -54,7 +51,7 @@ export default function Portfolio() {
       description:
         "Desarrollo de experiencia inmersiva utilizando Unity como motor gráfico con el lenguaje C# y Blender para el modelado 3D. Durante este proyecto se utilizaron técnicas de optimización como Occlusion Culling, LOD (Level of Detail), Billboard entre otras para crear un recorrido virtual interactivo.",
       technologies: ["Unity", "C#", "Blender", "3D Modeling", "VR"],
-      image: "/images/virtual-tour.png",
+      image: "/rv.jpeg",
       link: "https://casa-cacao.ujat.mx/",
     },
     {
@@ -62,7 +59,7 @@ export default function Portfolio() {
       description:
         "Aplicación de Realidad Aumentada (RA) desarrollada en el Laboratorio de Desarrollo de Apps (X DEV LAB) de la UJAT. Utiliza Unity como entorno de desarrollo en conjunto con Vuforia Engine para crear experiencias interactivas aumentadas.",
       technologies: ["Unity", "Vuforia", "C#", "AR", "Mobile Development"],
-      image: "/images/ar-app.png",
+      image: "/ra.jpeg",
       link: "https://laguna-ilusiones.ujat.mx/app-ra2.html",
     },
     {
@@ -70,7 +67,7 @@ export default function Portfolio() {
       description:
         "Recorrido virtual de un zoológico para una red itinerante para la conservación sustentable de organismos acuáticos de Tabasco. Desarrollado con Unity como motor gráfico, utilizando el lenguaje de programación C# y Blender para crear modelos 3D detallados de los animales y el entorno.",
       technologies: ["Unity", "C#", "Blender", "3D Modeling", "Virtual Tour"],
-      image: "/images/virtual-zoo.png",
+      image: "/zoo.png",
       link: "https://pescarte.ujat.mx/virtual/",
     },
   ]
@@ -158,8 +155,6 @@ export default function Portfolio() {
     return () => clearTimeout(timer)
   }, [])
 
-  // Eliminar todo el useEffect para configurar sonidos
-
   const handleNavClick = (section: string) => {
     playClickSound()
     setActiveSection(section)
@@ -181,7 +176,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white font-pixel overflow-hidden relative">
-      <PixelCursor />
+      {!isMobile && <PixelCursor />}
 
       {/* Pixel art background overlay */}
       <div className="fixed inset-0 bg-[url('/descargar.gif')] bg-repeat opacity-10 pointer-events-none" />
@@ -579,11 +574,11 @@ export default function Portfolio() {
                     <h3 className="text-xl text-green-300 mb-4 border-b border-green-500 pb-2">Desarrollo VR/AR</h3>
 
                     {[
-                      { name: "Unity", level: 85 },
-                      { name: "C#", level: 80 },
-                      { name: "Modelado 3D", level: 75 },
-                      { name: "Vuforia", level: 70 },
-                      { name: "Optimización 3D", level: 65 },
+                      { name: "Unity", level: 70 },
+                      { name: "C#", level: 60 },
+                      { name: "Modelado 3D", level: 50 },
+                      { name: "Vuforia", level: 30 },
+                      { name: "Optimización 3D", level: 60 },
                     ].map((skill, index) => (
                       <div key={index} className="space-y-2">
                         <div className="flex justify-between">
@@ -617,8 +612,8 @@ export default function Portfolio() {
                       { name: "HTML/CSS", level: 70 },
                       { name: "JavaScript", level: 65 },
                       { name: "React", level: 50 },
-                      { name: "Node.js", level: 45 },
-                      { name: "Astro", level: 40 },
+                      { name: "Node.js", level: 40 },
+                      { name: "Astro", level: 30 },
                     ].map((skill, index) => (
                       <div key={index} className="space-y-2">
                         <div className="flex justify-between">
@@ -654,10 +649,10 @@ export default function Portfolio() {
                     {[
                       { name: "C#", level: 80 },
                       { name: "Java", level: 70 },
-                      { name: "C++", level: 65 },
-                      { name: "JavaScript", level: 65 },
-                      { name: "Python", level: 50 },
-                      { name: "TypeScript", level: 45 },
+                      { name: "C++", level: 60 },
+                      { name: "JavaScript", level: 60 },
+                      { name: "Python", level: 30 },
+                      { name: "TypeScript", level: 40 },
                     ].map((skill, index) => (
                       <motion.div
                         key={index}
@@ -679,7 +674,7 @@ export default function Portfolio() {
                 <div className="mt-10">
                   <h3 className="text-xl text-green-300 mb-4 border-b border-green-500 pb-2">Herramientas</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {["Unity", "Blender", "Visual Studio", "VS Code", "Git", "GitHub", "Vuforia", "Adobe XD"].map(
+                    {["Unity", "Blender", "Visual Studio", "VS Code", "Git", "GitHub", "Vuforia", "MongoDB"].map(
                       (tool, index) => (
                         <motion.div
                           key={index}
@@ -887,7 +882,7 @@ export default function Portfolio() {
                     </motion.a>
                   </div>
 
-                  <motion.div
+                  {/* <motion.div
                     className="border-2 border-green-500 p-6 rounded-lg bg-green-900/20 pixel-corners"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -940,7 +935,7 @@ export default function Portfolio() {
                         ENVIAR MENSAJE
                       </motion.button>
                     </form>
-                  </motion.div>
+                  </motion.div> */}
                 </div>
               </motion.div>
             )}

@@ -55,7 +55,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    cursor: none;
+  }
+
+  /* Solo ocultar el cursor en dispositivos de escritorio */
+  @media (min-width: 769px) {
+    body {
+      cursor: none;
+    }
   }
 }
 

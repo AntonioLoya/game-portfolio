@@ -2,12 +2,18 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { useIsMobile } from "@/hooks/use-is-mobile"
 
 export default function PixelCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [clicked, setClicked] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
+    if (isMobile) {
+      return
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY })
     }
@@ -24,7 +30,11 @@ export default function PixelCursor() {
       window.removeEventListener("mousedown", handleMouseDown)
       window.removeEventListener("mouseup", handleMouseUp)
     }
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) {
+    return null
+  }
 
   return (
     <>
