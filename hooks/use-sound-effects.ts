@@ -1,10 +1,12 @@
 "use client"
 
 import { useRef, useEffect, useCallback } from "react"
+import { useIsMobile } from "@/hooks/use-is-mobile"
 
 export function useSoundEffects(enabled: boolean) {
   const clickSoundRef = useRef<HTMLAudioElement | null>(null)
   const hoverSoundRef = useRef<HTMLAudioElement | null>(null)
+  const isMobile = useIsMobile()
 
   // Inicializar los sonidos
   useEffect(() => {
@@ -49,7 +51,8 @@ export function useSoundEffects(enabled: boolean) {
 
   // Función para reproducir sonido de hover
   const playHoverSound = useCallback(() => {
-    if (!enabled) return
+    // No reproducir sonido de hover en dispositivos móviles
+    if (!enabled || isMobile) return
 
     try {
       // Usar una nueva instancia cada vez para evitar problemas
@@ -59,7 +62,7 @@ export function useSoundEffects(enabled: boolean) {
     } catch (error) {
       console.error("Error al reproducir sonido de hover:", error)
     }
-  }, [enabled])
+  }, [enabled, isMobile])
 
   return { playClickSound, playHoverSound }
 }

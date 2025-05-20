@@ -170,9 +170,9 @@ export default function Portfolio() {
     })
   }
 
-  if (isLoading) {
-    return <LoadingScreen level={24} />
-  }
+  // if (isLoading) {
+  //   return <LoadingScreen level={24} />
+  // }
 
   return (
     <div className="min-h-screen bg-black text-white font-pixel overflow-hidden relative">
