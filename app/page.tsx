@@ -610,10 +610,10 @@ export default function Portfolio() {
 
                     {[
                       { name: "HTML/CSS", level: 70 },
-                      { name: "JavaScript", level: 65 },
+                      { name: "JavaScript", level: 60 },
                       { name: "React", level: 50 },
-                      { name: "Node.js", level: 40 },
-                      { name: "Astro", level: 30 },
+                      { name: "Node.js", level: 30 },
+                      { name: "Astro", level: 20 },
                     ].map((skill, index) => (
                       <div key={index} className="space-y-2">
                         <div className="flex justify-between">
@@ -647,12 +647,12 @@ export default function Portfolio() {
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {[
-                      { name: "C#", level: 80 },
-                      { name: "Java", level: 70 },
+                      { name: "C#", level: 60 },
+                      { name: "Java", level: 60 },
                       { name: "C++", level: 60 },
                       { name: "JavaScript", level: 60 },
-                      { name: "Python", level: 30 },
-                      { name: "TypeScript", level: 40 },
+                      { name: "Python", level: 20 },
+                      { name: "TypeScript", level: 30 },
                     ].map((skill, index) => (
                       <motion.div
                         key={index}
